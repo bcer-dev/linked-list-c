@@ -49,12 +49,34 @@ void add_last(linked_list *ls, int x)
 
 void remove_first(linked_list *ls)
 {
+    if (ls->head == ls->tail)
+    {
+        ls->head = ls->tail = NULL;
+        return;
+    }
     
+    node *tmp = ls->head->next;
+    free(ls->head);
+    ls->head = tmp;
 }
 
 void remove_last(linked_list *ls)
 {
-    
+    for (node *n = ls->head; n != NULL; n = n->next)
+    {
+        if (ls->head == ls->tail)
+        {
+            ls->head = ls->tail = NULL;
+            return;
+        }
+
+        if (n->next == ls->tail)
+        {
+            free(ls->tail);
+            ls->tail = n;
+            n->next = NULL;
+        }
+    }
 }
 
 int index_of(linked_list *ls, int x)
