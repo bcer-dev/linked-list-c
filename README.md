@@ -9,3 +9,17 @@ To use the linked list, create a new linked-list:
 ```c
 linked_list *list = create_linked_list();
 ```
+
+To add elements, you can use either
+
+```c
+add_first(list, n);
+```
+
+or
+
+```c
+add_last(list, n);
+```
+
+Where n is an integer.

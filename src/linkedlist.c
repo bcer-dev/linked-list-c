@@ -54,7 +54,7 @@ void remove_first(linked_list *ls)
         ls->head = ls->tail = NULL;
         return;
     }
-    
+
     node *tmp = ls->head->next;
     free(ls->head);
     ls->head = tmp;
@@ -115,6 +115,19 @@ linked_list *intersection(linked_list *a, linked_list *b)
     for (node *n = a->head; n != NULL; n = n->next)
     {
         if (has(b, n->value))
+            add_last(common, n->value);
+    }
+
+    return common;
+}
+
+linked_list *difference(linked_list *a, linked_list *b)
+{
+    linked_list *common = create_linked_list();
+
+    for (node *n = a->head; n != NULL; n = n->next)
+    {
+        if (!has(b, n->value))
             add_last(common, n->value);
     }
 
