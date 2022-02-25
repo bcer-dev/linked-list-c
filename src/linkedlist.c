@@ -35,7 +35,7 @@ void add_last(linked_list *ls, int x)
     n->value = x;
     n->next = NULL;
 
-    if (ls->tail == NULL)
+    if (ls->head == NULL)
     {
         ls->head = n;
         ls->tail = n;
