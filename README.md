@@ -6,7 +6,7 @@ Linked lists are a data structure where instead of having elements stored in con
 
 To use the linked list, create a new linked-list:
 
-```C
+```c
 linked_list *list = create_linked_list();
 ```
 
